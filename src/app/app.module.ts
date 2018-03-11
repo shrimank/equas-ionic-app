@@ -22,6 +22,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DynamoDB } from '../providers/aws.dynamodb';
 
 import Amplify from 'aws-amplify';
+import { HomePageModule } from '../pages/home/home.module';
+import { SelectClassPageModule } from '../pages/select-class/select-class.module';
+import { AttendancePageModule } from '../pages/attendance/attendance.module';
 const aws_exports = require('../aws-exports').default;
 
 Amplify.configure(aws_exports);
@@ -42,7 +45,10 @@ Amplify.configure(aws_exports);
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HomePageModule,
+    SelectClassPageModule,
+    AttendancePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
