@@ -37,14 +37,15 @@ export class LoginPage {
     logger.info('login..');
     Auth.signIn(details.username, details.password)
       .then(user => {
-        logger.debug('signed in user', user);
+        
+        alert('signed in user'+ user);
         if (user.challengeName === 'SMS_MFA') {
           this.navCtrl.push(ConfirmSignInPage, { 'user': user });
         } else {
           this.navCtrl.setRoot(TabsPage);
         }
       })
-      .catch(err => logger.debug('errrror', err))
+      .catch(err => alert('errrror'+ err))
       .then(() => loading.dismiss());
   }
 
