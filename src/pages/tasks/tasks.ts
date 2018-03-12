@@ -27,6 +27,7 @@ export class TasksPage {
 
     Auth.currentCredentials()
       .then(credentials => {
+        console.log('Credentials',JSON.stringify(credentials,null,2));
         this.userId = credentials.identityId;
         this.refreshTasks();
       })

@@ -7,6 +7,14 @@
     <ion-list>
 
       <ion-item>
+        <ion-label>Role</ion-label>
+        <ion-select (ngModel)="userDetails.equas_role">
+          <ion-option value="">Select</ion-option>
+           <ion-option *ngFor="let role of roles" [value]="role">{{role}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
         <ion-label floating>Username</ion-label>
         <ion-input type="text" [(ngModel)]="userDetails.username" autocorrect="off" autocapitalize="none" name="username"></ion-input>
       </ion-item>

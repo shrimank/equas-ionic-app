@@ -9,6 +9,7 @@ import { SettingsPage } from '../settings/settings';
 export class TabsPage {
 
   tab1Root = 'HomePage';
+  //tab1Root = TasksPage;
   tab2Root = SettingsPage;
 
   constructor() {

@@ -25,6 +25,7 @@ import Amplify from 'aws-amplify';
 import { HomePageModule } from '../pages/home/home.module';
 import { SelectClassPageModule } from '../pages/select-class/select-class.module';
 import { AttendancePageModule } from '../pages/attendance/attendance.module';
+import { ClassesPageModule } from '../pages/classes/classes.module';
 const aws_exports = require('../aws-exports').default;
 
 Amplify.configure(aws_exports);
@@ -48,7 +49,8 @@ Amplify.configure(aws_exports);
     IonicModule.forRoot(MyApp),
     HomePageModule,
     SelectClassPageModule,
-    AttendancePageModule
+    AttendancePageModule,
+    ClassesPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

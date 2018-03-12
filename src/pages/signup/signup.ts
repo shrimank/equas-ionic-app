@@ -13,6 +13,7 @@ export class UserDetails {
     email: string;
     phone_number: string;
     password: string;
+    equas_role:string;
 }
 
 @Component({
@@ -22,6 +23,8 @@ export class UserDetails {
 export class SignupPage {
 
   public userDetails: UserDetails;
+
+  roles:string[]=["Principal","Student","Teacher","Parents"];
 
   error: any;
 
@@ -40,11 +43,14 @@ export class SignupPage {
     let details = this.userDetails;
     this.error = null;
     logger.debug('register');
-    Auth.signUp(details.username, details.password, details.email, details.phone_number)
+    Auth.signUp(details.username, details.password, details.email, details.phone_number,details.equas_role)
       .then(user => {
+        console.log('Success  Registration',JSON.stringify(user,null,2));
         this.navCtrl.push(ConfirmSignUpPage, { username: details.username });
       })
-      .catch(err => { this.error = err; })
+      .catch(err => { 
+        alert("Error:"+err)
+        this.error = err; })
       .then(() => loading.dismiss());
   }
 

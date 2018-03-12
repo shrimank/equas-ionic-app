@@ -31,8 +31,8 @@ export class HomePage {
         items:[
             {
             icon_name:'cart',
-            name:'Attendance',
-            page:'SelectClassPage'
+            name:'Classes',
+            page:'ClassesPage'
               },
             {
             icon_name:'medical',
