@@ -9,6 +9,30 @@ features:
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
-  sign-in: !com.amazonaws.mobilehub.v0.SignIn {}
+  sign-in: !com.amazonaws.mobilehub.v0.SignIn 
+    attributes:
+      enabled: true
+      optional-sign-in: false
+    components:
+      sign-in-google: !com.amazonaws.mobilehub.v0.OpenIDConnectIdentityProvider 
+        attributes:
+          open-id-connect-audience-android: RjbmkopykYdLDXFF56eKJosi
+          open-id-connect-audience-ios: ''
+          open-id-connect-audience-webapp: 729373456164-jh3sg56rpfqr0hnf7rouunjjkcqg8lv4.apps.googleusercontent.com
+          open-id-provider-url: 'https://accounts.google.com'
+      sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
+        attributes:
+          alias-attributes:
+            - preferred_username
+            - email
+            - phone_number
+          mfa-configuration: OFF
+          name: userpool
+          password-policy: !com.amazonaws.mobilehub.ConvertibleMap 
+            min-length: '8'
+            require-lower-case: true
+            require-numbers: true
+            require-symbols: true
+            require-upper-case: true
 name: equas-ionic-app
 region: ap-south-1

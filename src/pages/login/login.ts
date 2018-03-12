@@ -38,14 +38,14 @@ export class LoginPage {
     Auth.signIn(details.username, details.password)
       .then(user => {
         
-        console.log('signed in user');
+        alert('signed in user'); 
         if (user.challengeName === 'SMS_MFA') {
           this.navCtrl.push(ConfirmSignInPage, { 'user': user });
         } else {
           this.navCtrl.setRoot(TabsPage);
         }
       })
-      .catch(err => console.log('errrror', err))
+      .catch(err => alert('errrror'+err))
       .then(() => loading.dismiss());
   }
 
