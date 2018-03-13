@@ -16,7 +16,8 @@
 <ion-content padding>
 
   <ion-card *ngFor="let card of cards">
-    <ion-card-header color="danger">
+    <ion-card-header color="text">
+      <ion-icon [name]="card.icon_name"></ion-icon>
       {{card.header}}
     </ion-card-header>
 

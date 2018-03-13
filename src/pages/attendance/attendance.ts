@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { Toast } from '@ionic-native/toast';
 import { STUDENT_LIST } from '../../models/student.model';
 
 /**
@@ -23,13 +24,42 @@ export class AttendancePage {
   
   students:any[]=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,private alertCtrl:AlertController,
+    private toast:Toast) {
     this.grade=this.navParams.get('grade');
     this.students = STUDENT_LIST;
   }
 
   submit() {
 
+    let alert = this.alertCtrl.create({
+      title: 'Confirm',
+      message: 'Do you want to submit ?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            
+            console.log('canceled.');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            this.toast.show(`Attendance submitted.`, '5000', 'center').subscribe(
+              toast => {
+                console.log(toast);
+              }
+            );
+            this.navCtrl.pop();     
+
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   goToHome(){

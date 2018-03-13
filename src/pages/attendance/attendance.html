@@ -6,33 +6,40 @@
 -->
 <ion-header>
 
-  <ion-navbar color="equas-theme" hideBackButton>
-      <button ion-button clear icon-only item-right  (click)="goToHome()">
-          <ion-icon name="home" ></ion-icon>
-        </button>
+  <ion-navbar color="equas-theme">
+
     <ion-title>Attendance({{grade}})</ion-title>
-    
+    <ion-buttons end>
+      <button ion-button clear icon-only (click)="submit()">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding color="secondary">
-    
-  <button ion-button icon-only  (click)="submit()">
-        <ion-icon name="arrow-dropright"></ion-icon>
-      </button>
-   <ion-list>
-      
-      <ion-item *ngFor="let std of students">
-          <ion-label>{{std.name}}</ion-label>
-          <ion-checkbox color="secondary" checked="false"></ion-checkbox>
-          <ion-avatar item-end>
-              <img *ngIf="std.gender === 'male'" [src]="maleAvatarUrl">
-              <img *ngIf="std.gender === 'female'" [src]="femaleAvatarUrl">
-          </ion-avatar>
-        </ion-item>
-      
-    </ion-list>
+
+  <!-- <ion-item ion-fixed padding>
+    Students
+    <button ion-button clear icon-only (click)="submit()" item-right>
+      <ion-icon name="arrow-forward"></ion-icon>
+    </button>
+  </ion-item> -->
+
+  <ion-list>
+
+    <ion-item *ngFor="let std of students">
+      <ion-label>{{std.name}}</ion-label>
+      <ion-checkbox color="secondary" checked="false"></ion-checkbox>
+      <ion-avatar item-end>
+        <img *ngIf="std.gender === 'male'" [src]="maleAvatarUrl">
+        <img *ngIf="std.gender === 'female'" [src]="femaleAvatarUrl">
+      </ion-avatar>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>

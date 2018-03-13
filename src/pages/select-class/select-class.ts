@@ -23,8 +23,10 @@ export class SelectClassPage implements OnInit {
 
   selectedClass(grade:any){
     console.log(grade);
-    this.navCtrl.setRoot('AttendancePage',{'grade':grade});
+    this.navCtrl.push('AttendancePage',{'grade':grade});
   }
+
+  
 
   ngOnInit() {
     this.grades =[

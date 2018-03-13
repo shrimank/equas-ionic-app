@@ -1,8 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-
-import { Camera } from '@ionic-native/camera';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -18,11 +17,13 @@ import { TasksCreatePage } from '../pages/tasks-create/tasks-create';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { TextToSpeech } from '@ionic-native/text-to-speech';
+import { Toast } from '@ionic-native/toast';
 import { DynamoDB } from '../providers/aws.dynamodb';
 
 import Amplify from 'aws-amplify';
 import { HomePageModule } from '../pages/home/home.module';
+import { BotPageModule } from '../pages/bot/bot.module';
 import { SelectClassPageModule } from '../pages/select-class/select-class.module';
 import { AttendancePageModule } from '../pages/attendance/attendance.module';
 import { ClassesPageModule } from '../pages/classes/classes.module';
@@ -47,10 +48,12 @@ Amplify.configure(aws_exports);
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
     HomePageModule,
     SelectClassPageModule,
     AttendancePageModule,
-    ClassesPageModule
+    ClassesPageModule,
+    BotPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -70,8 +73,9 @@ Amplify.configure(aws_exports);
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera,
-    DynamoDB
+    DynamoDB,
+    TextToSpeech,
+    Toast
   ]
 })
 export class AppModule {}

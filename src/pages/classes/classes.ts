@@ -25,24 +25,25 @@ export class ClassesPage {
     this.cards =[
       {
         header:'Students',
+        icon_name:'people',
         items:[
             {
-            icon_name:'cart',
+            icon_name:'checkbox-outline',
             name:'Attendance',
             page:'SelectClassPage'
               },
             {
-            icon_name:'medical',
+            icon_name:'copy',
             name:'Tests',
             page:'SelectClassPage'
               },
             {
-            icon_name:'cafe',
+            icon_name:'checkbox',
             name:'Test Results',
             page:'SelectClassPage'
               },
             {
-            icon_name:'cafe',
+            icon_name:'clipboard',
             name:'ReportCards',
             page:'SelectClassPage'
               }

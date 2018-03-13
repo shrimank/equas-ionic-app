@@ -8,16 +8,22 @@
 
   <ion-navbar color="equas-theme" text-center>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+        <button  id="searchBtn" ion-button icon-only (click)="openAIModal()">
+            <ion-icon no-padding name="aperture"></ion-icon>
+          </button>
+        </ion-buttons>
+      
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
   <ion-card *ngFor="let card of cards">
-    <ion-card-header color="text" style="background-color: #6a0080;">
-      {{card.header}}
+    <ion-card-header color="text">
+        <ion-icon  [name]="card.icon_name"></ion-icon>
+          {{card.header}}
     </ion-card-header>
 
     <ion-list *ngFor="let item of card.items" >

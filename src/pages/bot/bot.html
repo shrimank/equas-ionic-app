@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input #input type="text" placeholder="Your text here..." [(ngModel)]="text">
+      </ion-input>
+
+      <button ion-button icon-only item-right clear (click)="sendText();input.setFocus()">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-fab top right>
+    <button ion-fab color="danger" (click)="sendVoice()">
+      <ion-icon name="mic"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-fab bottom right>
+    <button ion-fab color="dark" (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <!-- <ion-searchbar [(ngModel)]="text" (ionInput)="sendText($event)"></ion-searchbar> -->
+  <ion-list *ngIf="text!==''">
+    <ion-item *ngFor="let item of items">
+      <button ion-button clear block *ngIf="item.type==='page'" (click)="goTo(item.action,item.name)">{{item.name}}</button>
+    </ion-item>
+  </ion-list>
+
+
+
+  <ion-list no-lines class="chat-list">
+    <ion-item *ngFor="let message of messages" class="chat-item" text-wrap>
+      <ion-avatar item-left *ngIf="message.sender == 'api'">
+        <img src="https://s3.ap-south-1.amazonaws.com/ezipdev-hosting-mobilehub-703695616/assets/icon/apiai.png">
+      </ion-avatar>
+      <ion-avatar item-right *ngIf="message.sender == 'me'">
+        <img src="https://s3.ap-south-1.amazonaws.com/ezipdev-hosting-mobilehub-703695616/assets/svg/userProfile.svg">
+      </ion-avatar>
+
+
+      <div *ngIf="message.sender ===  'api'" class="bubble me">
+        <h3> {{message.text}} </h3>
+        <img *ngIf="message.data.type === 'image'" [src]='message.data.imageUrl' [navPush]="message.data.pageName" />
+        <button ion-button clear *ngIf="message.data.type === 'page'" [navPush]="message.data.pageName">{{message.data.name}}</button>
+
+        
+          <ion-card *ngIf="message.data.type ==='list'">
+
+            <ion-card-content *ngFor="let val of message.data.list">
+             {{val}}
+            </ion-card-content>
+          
+          </ion-card>
+        
+
+      </div>
+
+
+      <div *ngIf="message.sender ===  'me'" class="bubble you">
+        <h3> {{message.text}}</h3>
+      </div>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
+<!-- <ion-footer> -->
+<!-- <ion-toolbar>
+    <ion-item>
+      <ion-input #input type="text" placeholder="Your message here..." [(ngModel)]="text">
+      </ion-input>
+
+      <button ion-button icon-only item-right clear (click)="sendText();input.setFocus()">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-toolbar> -->
+<!-- </ion-footer> -->

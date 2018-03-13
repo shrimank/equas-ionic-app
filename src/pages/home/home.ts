@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
+import {BotPage} from '../bot/bot';
 /**
  * Generated class for the HomePage page.
  *
@@ -18,7 +18,7 @@ export class HomePage {
   cards:any[]=[];
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
 
    
   }
@@ -28,24 +28,25 @@ export class HomePage {
     this.cards =[
       {
         header:'Students',
+        icon_name:'contact',
         items:[
             {
-            icon_name:'cart',
+            icon_name:'people',
             name:'Classes',
             page:'ClassesPage'
               },
             {
-            icon_name:'medical',
+            icon_name:'stats',
             name:'Marks',
             page:'SelectClassPage'
               },
             {
-            icon_name:'cafe',
+            icon_name:'information-circle',
             name:'History',
             page:'SelectClassPage'
               },
             {
-            icon_name:'cafe',
+            icon_name:'create',
             name:'Leaves',
             page:'SelectClassPage'
               }
@@ -53,19 +54,20 @@ export class HomePage {
       },
     {
         header:'Staffs',
+        icon_name:'people',
         items:[
             {
-            icon_name:'cart',
+            icon_name:'bookmarks',
             name:'Syllabus',
             page:'SelectClassPage'
               },
             {
-            icon_name:'medical',
+            icon_name:'checkbox-outline',
             name:'Attendance',
             page:'SelectClassPage'
               },
             {
-            icon_name:'cafe',
+            icon_name:'create',
             name:'Leaves',
             page:'SelectClassPage'
               }
@@ -73,19 +75,20 @@ export class HomePage {
       },
     {
         header:'Attendance Report',
+        icon_name:'checkbox',
         items:[
             {
-            icon_name:'cart',
+            icon_name:'person',
             name:'Students',
             page:'SelectClassPage'
               },
             {
-            icon_name:'medical',
+            icon_name:'contact',
             name:'Teaching Staffs',
             page:'SelectClassPage'
               },
             {
-            icon_name:'cafe',
+            icon_name:'contacts',
             name:'Non-Teaching Staffs',
             page:'SelectClassPage'
               }
@@ -93,19 +96,20 @@ export class HomePage {
       },
     {
         header:'Analysis Report',
+        icon_name:'pulse',
         items:[
             {
-            icon_name:'cart',
+            icon_name:'person',
             name:'Students',
             page:'SelectClassPage'
               },
             {
-            icon_name:'medical',
+            icon_name:'contact',
             name:'Teaching Staffs',
             page:'SelectClassPage'
               },
             {
-            icon_name:'cafe',
+            icon_name:'contacts',
             name:'Non-Teaching Staffs',
             page:'SelectClassPage'
               }
@@ -113,6 +117,11 @@ export class HomePage {
       }
     
     ];
+  }
+
+  openAIModal(){
+    let  modal  =  this.modalCtrl.create(BotPage);
+    modal.present();
   }
 
 }
