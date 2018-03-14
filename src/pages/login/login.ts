@@ -21,6 +21,7 @@ export class LoginDetails {
 export class LoginPage {
   
   public loginDetails: LoginDetails;
+  login_header_image:string='https://s3.ap-south-1.amazonaws.com/myequas-images/login-header.jpg';
 
   constructor(public navCtrl: NavController,
               public loadingCtrl: LoadingController) {

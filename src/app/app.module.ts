@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ConfirmSignInPage } from '../pages/confirmSignIn/confirmSignIn';
 import { ConfirmSignUpPage } from '../pages/confirmSignUp/confirmSignUp';
+import { ConfirmPage }  from '../pages/confirm/confirm';
 import { SettingsPage } from '../pages/settings/settings';
 import { AboutPage } from '../pages/about/about';
 import { AccountPage } from '../pages/account/account';
@@ -39,6 +40,7 @@ Amplify.configure(aws_exports);
     ConfirmSignInPage,
     ConfirmSignUpPage,
     SettingsPage,
+    ConfirmPage,
     AboutPage,
     AccountPage,
     TabsPage,
@@ -66,6 +68,7 @@ Amplify.configure(aws_exports);
     AboutPage,
     AccountPage,
     TabsPage,
+    ConfirmPage,
     TasksPage,
     TasksCreatePage
   ],
