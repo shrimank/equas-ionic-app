@@ -7,7 +7,7 @@
 <ion-header>
 
 
-  <ion-navbar color="equas-theme">
+  <ion-navbar color="primary">
     
     <ion-title>Choose Class/Grade</ion-title>
   </ion-navbar>
@@ -19,11 +19,11 @@
 <ion-content padding>
 
   <ion-list radio-group >
-    <ion-list-header color="text">
+    <ion-list-header color="secondary">
               Grades/Classes
     </ion-list-header>
 
-    <ion-item *ngFor="let grade of grades" s-color="light">
+    <ion-item *ngFor="let grade of grades">
       <ion-label>{{grade.name}}</ion-label>
       <ion-radio [value]="grade.name" (ionSelect)="selectedClass($event)"></ion-radio>
       <ion-badge item-end>{{grade.count}}</ion-badge>

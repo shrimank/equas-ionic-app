@@ -26,9 +26,12 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public loadingCtrl: LoadingController) {
     this.loginDetails = new LoginDetails(); 
+    this.loginDetails.username='shrimank';
+    this.loginDetails.password='Evolvus*123';
   }
 
   login() {
+    
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });

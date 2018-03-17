@@ -34,29 +34,13 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  // primary:    #488aff,
-  // secondary:  #32db64,
    danger:     #9C27B0,
-  // light:      #f4f4f4,
-  primary: #64b5f6,
+  primary: #2e4874,
+  secondary:#7eaba4,
   light:#9be7ff,
   dark:  #2286c3,
-  text:#ffffff,
-  //dark:       #222,
-  equas-theme:#64b5f6
 );
 
-$p-color: (
-  p-blue:#64b5f6,
-  p-light:#9be7ff,
-  p-dark:#2286c3
-);
-
-$s-color: (
-  s-orange:#ff9100,
-  s-light:#ffc246,
-  s-dark:#c56200
-);
 
 
 // App iOS Variables
