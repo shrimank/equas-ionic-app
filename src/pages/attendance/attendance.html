@@ -11,7 +11,7 @@
     <ion-title>Attendance({{grade}})</ion-title>
     <ion-buttons end>
       <button ion-button clear icon-only (click)="submit()">
-        <ion-icon name="send"></ion-icon>
+        <ion-icon name="send" color="light"> </ion-icon>
       </button>
     </ion-buttons>
 
@@ -28,18 +28,34 @@
       <ion-icon name="arrow-forward"></ion-icon>
     </button>
   </ion-item> -->
+    <ion-list>
+      <ion-list-header round color="secondary" position-fixed>
+        {{today}} - Attendance
+      </ion-list-header>
 
-  <ion-list>
+      <ion-item *ngFor="let std of students">
+        <ion-label>{{std.name}}</ion-label>
+        <!-- <ion-checkbox formControlName="student" color="secondary" [checked]="std.presentFlag"></ion-checkbox> -->
+        <ion-toggle [(ngModel)]="std.presentFlag" [(checked)]="std.presentFlag" item-end></ion-toggle>
 
-    <ion-item *ngFor="let std of students">
-      <ion-label>{{std.name}}</ion-label>
-      <ion-checkbox color="secondary" checked="false"></ion-checkbox>
-      <ion-avatar item-end>
-        <img *ngIf="std.gender === 'male'" [src]="maleAvatarUrl">
-        <img *ngIf="std.gender === 'female'" [src]="femaleAvatarUrl">
-      </ion-avatar>
-    </ion-item>
+        <ion-avatar item-start>
+          <img *ngIf="std.gender === 'male'" [src]="maleAvatarUrl">
+          <img *ngIf="std.gender === 'female'" [src]="femaleAvatarUrl">
+        </ion-avatar>
+      </ion-item>
 
-  </ion-list>
+    </ion-list>
 
 </ion-content>
+
+
+<!-- <div formArrayName="items"
+  *ngFor="let item of orderForm.get('items').controls; let i = index;">
+  <div [formGroupName]="i">
+    <input formControlName="name" placeholder="Item name">
+    <input formControlName="description" placeholder="Item description">
+    <input formControlName="price" placeholder="Item price">
+  </div>
+
+  Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }}
+</div> -->

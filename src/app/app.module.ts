@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
@@ -28,6 +28,8 @@ import { BotPageModule } from '../pages/bot/bot.module';
 import { SelectClassPageModule } from '../pages/select-class/select-class.module';
 import { AttendancePageModule } from '../pages/attendance/attendance.module';
 import { ClassesPageModule } from '../pages/classes/classes.module';
+import { UtilService}  from '../services/util.service';
+import { AttendanceService } from '../services/attendance.service';
 const aws_exports = require('../aws-exports').default;
 
 Amplify.configure(aws_exports);
@@ -55,7 +57,8 @@ Amplify.configure(aws_exports);
     SelectClassPageModule,
     AttendancePageModule,
     ClassesPageModule,
-    BotPageModule
+    BotPageModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -78,7 +81,9 @@ Amplify.configure(aws_exports);
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DynamoDB,
     TextToSpeech,
-    Toast
+    Toast,
+    UtilService,
+    AttendanceService
   ]
 })
 export class AppModule {}

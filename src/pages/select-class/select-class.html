@@ -20,15 +20,17 @@
 
   <ion-list radio-group >
     <ion-list-header color="secondary">
-              Grades/Classes
+              Grades/Classes 
     </ion-list-header>
-
+    
     <ion-item *ngFor="let grade of grades" (click)="selectedClass(grade.name)">
       <ion-label>{{grade.name}}
       </ion-label>
-      <ion-icon name="arrow-forward" item-end></ion-icon>
-        <button ion-fab color="danger" item-end>A-{{grade.absent}}</button>
-        <button ion-fab color="green" item-end>P-{{grade.present}}</button>
+        <ion-icon name="arrow-forward" item-end></ion-icon>
+        <button ion-fab color="danger" *ngIf="grade.todaysAttendanceFlag==='y'" item-end>A-{{grade.absent}}</button>
+        <button ion-fab color="green" *ngIf="grade.todaysAttendanceFlag==='y'"item-end>P-{{grade.present}}</button>
+        <!-- <button ion-fab color="green" item-end *ngIf="grade.todaysAttendanceFlag==='n'">Pending</button> -->
+        
         <button ion-fab item-end>T-{{grade.count}}</button>
         
     </ion-item>

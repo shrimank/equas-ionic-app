@@ -26,8 +26,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public loadingCtrl: LoadingController) {
     this.loginDetails = new LoginDetails(); 
-    this.loginDetails.username='shrimank';
-    this.loginDetails.password='Evolvus*123';
+   
   }
 
   login() {
@@ -42,7 +41,6 @@ export class LoginPage {
     Auth.signIn(details.username, details.password)
       .then(user => {
         Auth.userAt
-        console.log('signed in user',JSON.stringify(user,null,2)); 
         if (user.challengeName === 'SMS_MFA') {
           this.navCtrl.push(ConfirmSignInPage, { 'user': user });
         } else {

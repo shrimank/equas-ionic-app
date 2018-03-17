@@ -1,6 +1,6 @@
 export class Student {
-
-    constructor(public stdId:number,public name:string,public gender:string){}
+    public grade:string;
+    constructor(public stdId:number,public name:string,public gender:string,public presentFlag:boolean){}
 
 
 }
@@ -8,25 +8,25 @@ export class Student {
 
 
 export const STUDENT_LIST = [
-    new Student(1001,'Emmanuel Kittleson','male'),
-new Student(1002,'Sid Czaja','male'),
-new Student(1003,'Lesha Prestridge','female'),
-new Student(1004,'Ida Decesare','female'),
-new Student(1005,'Barney Kellen','male'),
-new Student(1006,'Charles Swayze','male'),
-new Student(1007,'Tiesha Silvera','female'),
-new Student(1008,'Lashawnda Maring','female'),
-new Student(1009,'Lory Austin','female'),
-new Student(1010,'Valarie Pendergast','female'),
-new Student(1011,'Dominic Lamontagne','male'),
-new Student(1012,'Leanne Vanhoose','female'),
-new Student(1013,'Guy Faivre','female'),
-new Student(1014,'Chauncey Stahly','male'),
-new Student(1015,'Jules Ng','male'),
-new Student(1016,'Camille Elsworth','female'),
-new Student(1017,'Viviana Wedel','male'),
-new Student(1018,'Elouise Fallon','female'),
-new Student(1019,'Nicol Cockburn','male'),
-new Student(1020,'Orval Barrus','male'),
+    new Student(1001,'Emmanuel Kittleson','male',false),
+new Student(1002,'Sid Czaja','male',false),
+new Student(1003,'Lesha Prestridge','female',false),
+new Student(1004,'Ida Decesare','female',false),
+new Student(1005,'Barney Kellen','male',false),
+new Student(1006,'Charles Swayze','male',false),
+new Student(1007,'Tiesha Silvera','female',false),
+new Student(1008,'Lashawnda Maring','female',false),
+new Student(1009,'Lory Austin','female',false),
+new Student(1010,'Valarie Pendergast','female',false),
+new Student(1011,'Dominic Lamontagne','male',false),
+new Student(1012,'Leanne Vanhoose','female',false),
+new Student(1013,'Guy Faivre','female',false),
+new Student(1014,'Chauncey Stahly','male',false),
+new Student(1015,'Jules Ng','male',false),
+new Student(1016,'Camille Elsworth','female',false),
+new Student(1017,'Viviana Wedel','male',false),
+new Student(1018,'Elouise Fallon','female',false),
+new Student(1019,'Nicol Cockburn','male',false),
+new Student(1020,'Orval Barrus','male',false),
 
 ];
