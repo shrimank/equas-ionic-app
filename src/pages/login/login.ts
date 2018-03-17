@@ -41,7 +41,7 @@ export class LoginPage {
     logger.info('login..');
     Auth.signIn(details.username, details.password)
       .then(user => {
-        
+        Auth.userAt
         console.log('signed in user',JSON.stringify(user,null,2)); 
         if (user.challengeName === 'SMS_MFA') {
           this.navCtrl.push(ConfirmSignInPage, { 'user': user });

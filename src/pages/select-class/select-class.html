@@ -23,10 +23,14 @@
               Grades/Classes
     </ion-list-header>
 
-    <ion-item *ngFor="let grade of grades">
-      <ion-label>{{grade.name}}</ion-label>
-      <ion-radio [value]="grade.name" (ionSelect)="selectedClass($event)"></ion-radio>
-      <ion-badge item-end>{{grade.count}}</ion-badge>
+    <ion-item *ngFor="let grade of grades" (click)="selectedClass(grade.name)">
+      <ion-label>{{grade.name}}
+      </ion-label>
+      <ion-icon name="arrow-forward" item-end></ion-icon>
+        <button ion-fab color="danger" item-end>A-{{grade.absent}}</button>
+        <button ion-fab color="green" item-end>P-{{grade.present}}</button>
+        <button ion-fab item-end>T-{{grade.count}}</button>
+        
     </ion-item>
   </ion-list>
 
